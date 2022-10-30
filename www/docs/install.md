@@ -16,15 +16,6 @@ VERSION=$(echo $TAG | cut -d 'v' -f 2)
 !!! info
     You will need `jq` and `curl` in your `PATH`
 
-## Docker
-
-See the [Packages Page](https://github.com/vdbulcke/hc-vault-util/pkgs/container/hc-vault-util) to find the latest docker image.
-
-```bash
-docker run --rm  -v /path/to/your/config.yaml:/app/config.yaml:z -p 9000:9000 ghcr.io/vdbulcke/hc-vault-util:v${TAG}
-```
-
-
 
 ## MacOS 
 
