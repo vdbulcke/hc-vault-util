@@ -30,7 +30,7 @@ func (t *TransitClient) ImportPrivateKey(keyFile string) error {
 	privKey, err := x509.ParsePKCS8PrivateKey(key.Bytes)
 	if err != nil {
 		t.logger.Error("Error parsing PEM PKCS8 private key", "error", err)
-		t.logger.Warn("You can use openssl to convert your key into PKCS8 PEM format:\n\n  openssl pkcs8 -topk8 -outform DER -in key.pem -out key_pk8.pem -nocrypt \n")
+		t.logger.Warn("You can use openssl to convert your key into PKCS8 PEM format:\n\n  openssl pkcs8 -topk8 -outform PEM -in key.pem -out key_pk8.pem -nocrypt \n")
 		return err
 	}
 
