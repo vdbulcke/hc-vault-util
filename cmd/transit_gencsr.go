@@ -39,7 +39,7 @@ var genCSRCmd = &cobra.Command{
 
 Mandatory Environment Variables:
 - VAULT_ADDR: Address of the vault server 
-- VAULT_TOKEN: Vault authentication token. With permission to read transit/wrapping_key and write transit/keys/[KEY-NAME]/import.
+- VAULT_TOKEN: Vault authentication token. With permission to read 'transit/keys/[KEY-NAME]' and write 'transit/sign/[KEY-NAME]'.
 
 Optional Environment Variables:
 - VAULT_CACERT: Path to a PEM encoded CA file to verify TLS on the VAULT_ADDR.
@@ -49,6 +49,7 @@ Optional Environment Variables:
 
 CSR JSON format: 
 {
+	"CN": "Foo",
     "hosts": [
         "cloudflare.com",
         "www.cloudflare.com"
