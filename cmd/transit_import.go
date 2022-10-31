@@ -64,7 +64,10 @@ func importRun(cmd *cobra.Command, args []string) {
 		os.Exit(1)
 	}
 
-	err = transitClient.ImportPrivateKey(transitMount, transitKey, privKey)
+	// set key properties
+	transitClient.SetKeyProperties(transitMount, transitKey)
+
+	err = transitClient.ImportPrivateKey(privKey)
 	if err != nil {
 		logger.Error("Error importing key", "error", err)
 		os.Exit(1)
