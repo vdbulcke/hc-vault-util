@@ -22,12 +22,12 @@ func GenLogger(Debug, noColor bool) hclog.Logger {
 
 	if noColor {
 		appLogger = hclog.New(&hclog.LoggerOptions{
-			Name:  "oidc-client",
+
 			Level: logLevel,
 		})
 	} else {
 		appLogger = hclog.New(&hclog.LoggerOptions{
-			Name:  "oidc-client",
+
 			Level: logLevel,
 			Color: hclog.AutoColor,
 		})
