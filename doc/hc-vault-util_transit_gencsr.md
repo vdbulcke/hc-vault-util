@@ -28,7 +28,7 @@ Optional Environment Variables:
 
 CSR JSON format: 
 {
-	"CN": "Foo",
+    "CN": "Foo",
     "hosts": [
         "cloudflare.com",
         "www.cloudflare.com"
