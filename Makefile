@@ -2,25 +2,24 @@
 
 .PHONY:	scan
 scan: 
-	go list -json -deps |  nancy sleuth
 	trivy fs . 
 
 .PHONY: build
 build: 
-	goreleaser build --rm-dist
+	goreleaser build --clean
 
 .PHONY: build-snapshot
 build-snapshot: 
-	goreleaser build --rm-dist --snapshot --single-target
+	goreleaser build --clean --snapshot --single-target
 
 
 .PHONY: release-skip-publish
 release-skip-publish: 
-	goreleaser release --rm-dist --skip-publish 
+	goreleaser release --clean --skip-publish  --skip-sign
 
 .PHONY: release-snapshot
 release-snapshot: 
-	goreleaser release --rm-dist --skip-publish --snapshot
+	goreleaser release --clean --skip-publish --snapshot  --skip-sign
 
 
 .PHONY: lint
@@ -32,6 +31,9 @@ lint:
 changelog: 
 	git-chglog -o CHANGELOG.md 
 
+.PHONY: view-changelog
+view-changelog: 
+	git-chglog 
 
 .PHONY: test
 test:
@@ -42,7 +44,7 @@ test:
 .PHONY: gen-doc
 gen-doc: 
 	mkdir -p ./doc
-	./dist/hc-vault-util_linux_amd64/hc-vault-util  documentation  --dir ./doc
+	./dist/hc-vault-util_linux_amd64_v1/hc-vault-util  documentation  --dir ./doc
 
 .PHONY: doc-site
 doc-site: 

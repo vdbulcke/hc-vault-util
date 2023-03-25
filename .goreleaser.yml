@@ -21,16 +21,27 @@ builds:
       # - 386
     ldflags:
       ## auto inject commit and version at build time
-      - -X github.com/vdbulcke/hc-vault-util/cmd.GitCommit={{ .ShortCommit }} -X github.com/vdbulcke/hc-vault-util/cmd.Version={{ .Version }}  -X github.com/vdbulcke/hc-vault-util/cmd.Date={{ .CommitDate }} -X github.com/vdbulcke/hc-vault-util/cmd.BuiltBy=goreleaser
+      - -X github.com/vdbulcke/hc-vault-util/cmd.GitCommit={{ .ShortCommit }} 
+      - -X github.com/vdbulcke/hc-vault-util/cmd.Version=v{{ .Version }} 
+      - -X github.com/vdbulcke/hc-vault-util/cmd.Date={{ .CommitDate }} 
+      - -X github.com/vdbulcke/hc-vault-util/cmd.BuiltBy=goreleaser
 archives:
   - 
-    replacements:
-      ## Rewrite Archive name 
-      darwin: Darwin
-      linux: Linux
-      windows: Windows
-      386: i386
-      amd64: x86_64
+    ## Deprecated "replacements"
+    # replacements:
+    #   ## Rewrite Archive name 
+    #   darwin: Darwin
+    #   linux: Linux
+    #   windows: Windows
+    #   386: i386
+    #   amd64: x86_64
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
     ## use zip for windows release
     format_overrides:
       - goos: windows
@@ -39,9 +50,9 @@ archives:
     - LICENSE
 
 ## create MacOS universal binary
-universal_binaries:
-## set to true to ONLY generate a universal binary 
-- replace: false
+# universal_binaries:
+# ## set to true to ONLY generate a universal binary 
+# - replace: false
 
 checksum:
   name_template: 'checksums.txt'
@@ -73,6 +84,21 @@ changelog:
       order: 1
     - title: Others
       order: 999
+##
+## Cosign
+##
+signs:
+  - cmd: cosign
+    signature: "${artifact}.sig"
+    certificate: '${artifact}.pem'
+    output: true
+    args: 
+      - "sign-blob"
+      - "--oidc-issuer=https://token.actions.githubusercontent.com" 
+      - "--output-certificate=${artifact}.pem"
+      - "--output-signature=${artifact}.sig" 
+      - "${artifact}"
+    artifacts: all
 
 # dockers:
 #   - 
