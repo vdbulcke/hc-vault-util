@@ -2,6 +2,12 @@
 ## [Unreleased]
 
 
+<a name="v0.4.0"></a>
+## [v0.4.0] - 2023-07-02
+### Features
+- fb47cae - tui for vault kv2 secret engine ([#5](https://github.com/vdbulcke/hc-vault-util/issues/5))
+
+
 <a name="v0.3.0"></a>
 ## [v0.3.0] - 2023-03-25
 ### Features
@@ -39,7 +45,8 @@
 - 6144e26 - Vault transit key import
 
 
-[Unreleased]: https://github.com/vdbulcke/hc-vault-util/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/vdbulcke/hc-vault-util/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/vdbulcke/hc-vault-util/compare/v0.2.3...v0.3.0
 [v0.2.3]: https://github.com/vdbulcke/hc-vault-util/compare/v0.2.2...v0.2.3
 [v0.2.2]: https://github.com/vdbulcke/hc-vault-util/compare/v0.2.1...v0.2.2
