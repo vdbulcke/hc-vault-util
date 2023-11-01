@@ -2,6 +2,12 @@
 ## [Unreleased]
 
 
+<a name="v0.4.1"></a>
+## [v0.4.1] - 2023-11-01
+### Bug Fixes
+- db6020b - upgrade depdencies
+
+
 <a name="v0.4.0"></a>
 ## [v0.4.0] - 2023-07-02
 ### Features
@@ -45,7 +51,8 @@
 - 6144e26 - Vault transit key import
 
 
-[Unreleased]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.1...HEAD
+[v0.4.1]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.0...v0.4.1
 [v0.4.0]: https://github.com/vdbulcke/hc-vault-util/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/vdbulcke/hc-vault-util/compare/v0.2.3...v0.3.0
 [v0.2.3]: https://github.com/vdbulcke/hc-vault-util/compare/v0.2.2...v0.2.3
