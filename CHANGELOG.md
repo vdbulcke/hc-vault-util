@@ -2,6 +2,12 @@
 ## [Unreleased]
 
 
+<a name="v0.4.3"></a>
+## [v0.4.3] - 2024-04-01
+### Bug Fixes
+- 09ad8c8 - update dependencies
+
+
 <a name="v0.4.2"></a>
 ## [v0.4.2] - 2023-12-26
 ### Bug Fixes
@@ -57,7 +63,8 @@
 - 6144e26 - Vault transit key import
 
 
-[Unreleased]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.2...HEAD
+[Unreleased]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.3...HEAD
+[v0.4.3]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.2...v0.4.3
 [v0.4.2]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.1...v0.4.2
 [v0.4.1]: https://github.com/vdbulcke/hc-vault-util/compare/v0.4.0...v0.4.1
 [v0.4.0]: https://github.com/vdbulcke/hc-vault-util/compare/v0.3.0...v0.4.0
